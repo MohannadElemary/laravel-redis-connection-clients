@@ -1,0 +1,40 @@
+{
+    "name": "mohannadelemary/laravel-redis-connection-clients",
+    "description": "Pick the Redis client (phpredis, predis or a custom one) per connection in Laravel, instead of one global database.redis.client for every connection.",
+    "keywords": ["laravel", "redis", "phpredis", "predis", "sentinel", "connection", "client"],
+    "license": "MIT",
+    "homepage": "https://github.com/MohannadElemary/laravel-redis-connection-clients",
+    "authors": [{"name": "Mohannad Elemary", "homepage": "https://github.com/MohannadElemary"}],
+    "require": {
+        "php": "^8.3",
+        "illuminate/redis": "^12.0|^13.0",
+        "illuminate/support": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "predis/predis": "^2.0|^3.0"
+    },
+    "suggest": {
+        "ext-redis": "Needed for connections that use the phpredis client.",
+        "predis/predis": "Needed for connections that use the predis client."
+    },
+    "autoload": {"psr-4": {"MohannadElemary\\RedisConnectionClients\\": "src/"}},
+    "autoload-dev": {"psr-4": {"MohannadElemary\\RedisConnectionClients\\Tests\\": "tests/"}},
+    "extra": {
+        "laravel": {
+            "providers": ["MohannadElemary\\RedisConnectionClients\\RedisConnectionClientsServiceProvider"]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "analyse": "vendor/bin/phpstan analyse",
+        "format": "vendor/bin/pint",
+        "lint": "vendor/bin/pint --test"
+    },
+    "config": {"sort-packages": true, "allow-plugins": {"pestphp/pest-plugin": true}},
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
